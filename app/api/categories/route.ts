@@ -5,6 +5,7 @@ import { IsAdminRequest } from "../auth/[...nextauth]/route";
 
 export async function GET(req: NextRequest) {
     try {
+        dbConnection()
         const url = new URL(req.url)
         const queryParams = url.searchParams.get('id')
         if (queryParams) {
