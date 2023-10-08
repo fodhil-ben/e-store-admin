@@ -6,8 +6,6 @@ import { IsAdminRequest, authOptions } from "../auth/[...nextauth]/route";
 
 export async function GET(req: NextRequest) {
     try {
-        const isValid = await IsAdminRequest(req)
-        if (!isValid) return new NextResponse('Unauthorized', { status: 401 })
         const url = new URL(req.url)
         const queryParams = url.searchParams.get('id')
         if (queryParams) {
